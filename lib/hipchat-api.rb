@@ -38,41 +38,50 @@ module HipChat
       self.class.default_timeout(timeout)
     end
 
-    def rooms_list
-      self.class.get(hipchat_api_url_for('rooms/list'), :query => {:auth_token => @token})
-    end
-    
-    def rooms_show(room_id)
-      self.class.get(hipchat_api_url_for('rooms/show'), :query => {:auth_token => @token, :room_id => room_id})
-    end
-    
-    def rooms_message(room_id, from, message, notify = 0, color = 'yellow')
-      self.class.post(hipchat_api_url_for('rooms/message'), :body => {:auth_token => @token, :room_id => room_id, :from => from, 
-        :message => message, :notify => notify, :color => color})
-    end
-    
+    # https://www.hipchat.com/docs/api/method/rooms/history
     def rooms_history(room_id, date, timezone)
       self.class.get(hipchat_api_url_for('rooms/history'), :query => {:auth_token => @token, :room_id => room_id, :date => date, 
         :timezone => timezone})
     end
+
+    # https://www.hipchat.com/docs/api/method/rooms/list
+    def rooms_list
+      self.class.get(hipchat_api_url_for('rooms/list'), :query => {:auth_token => @token})
+    end
     
+    # https://www.hipchat.com/docs/api/method/rooms/message
+    def rooms_message(room_id, from, message, notify = 0, color = 'yellow')
+      self.class.post(hipchat_api_url_for('rooms/message'), :body => {:auth_token => @token, :room_id => room_id, :from => from, 
+        :message => message, :notify => notify, :color => color})
+    end
+
+    # https://www.hipchat.com/docs/api/method/rooms/show
+    def rooms_show(room_id)
+      self.class.get(hipchat_api_url_for('rooms/show'), :query => {:auth_token => @token, :room_id => room_id})
+    end
+            
+    # https://www.hipchat.com/docs/api/method/users/create
     def users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
       self.class.post(hipchat_api_url_for('users/create'), :body => {:auth_token => @token, :email => email, :name => name, :title => title, 
         :is_group_admin => is_group_admin, :password => password, :timezone => timezone}.reject!{|key, value| value.nil?})
     end
 
+    # https://www.hipchat.com/docs/api/method/users/delete
     def users_delete(user_id)
       self.class.post(hipchat_api_url_for('users/delete'), :body => {:auth_token => @token, :user_id => user_id})
     end
 
+    # https://www.hipchat.com/docs/api/method/users/list
     def users_list
       self.class.get(hipchat_api_url_for('users/list'), :query => {:auth_token => @token})
     end
 
+    # https://www.hipchat.com/docs/api/method/users/show
     def users_show(user_id)
       self.class.get(hipchat_api_url_for('users/show'), :query => {:auth_token => @token, :user_id => user_id})
     end
 
+    # https://www.hipchat.com/docs/api/method/users/update
     def users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
       self.class.post(hipchat_api_url_for('users/update'), :body => {:auth_token => @token, :user_id => user_id, :email => email, 
         :name => name, :title => title, :is_group_admin => is_group_admin, :password => password, :timezone => timezone}.reject!{|key, value| value.nil?})

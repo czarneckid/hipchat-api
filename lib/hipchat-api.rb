@@ -64,6 +64,10 @@ module HipChat
     def users_delete(user_id)
       self.class.post(hipchat_api_url_for('users/delete'), :body => {:auth_token => @token, :user_id => user_id})
     end
+
+    def users_list
+      self.class.get(hipchat_api_url_for('users/list'), :query => {:auth_token => @token})
+    end
     
     private
     

@@ -94,6 +94,17 @@ describe "HipChat::API" do
     users_delete_response.should_not be nil
     users_delete_response['deleted'].should be true
   end
+
+  it "should return a list of users" do
+    FakeWeb.register_uri(:get, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/list|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_list_response.json'), 
+                         :content_type => "application/json")
+  
+    users_list_response = @hipchat_api.users_list
+    users_list_response.should_not be nil
+    users_list_response['users'].size.should be 3
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

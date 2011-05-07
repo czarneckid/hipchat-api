@@ -1,6 +1,6 @@
 = hipchat-api
 
-Description goes here.
+Ruby API for interacting with HipChat API, https://www.hipchat.com/docs/api
 
 == Contributing to hipchat-api
  

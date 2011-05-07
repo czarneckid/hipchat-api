@@ -1,0 +1,10 @@
+{ "user" : { "email" : "new@company.com",
+      "is_group_admin" : 0,
+      "name" : "New Guy",
+      "password" : "d294H58zlE",
+      "photo_url" : "https://www.hipchat.com/img/silhouette_125.png",
+      "status" : "offline",
+      "status_message" : "",
+      "title" : "Intern",
+      "user_id" : 3
+    } }

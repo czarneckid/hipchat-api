@@ -72,6 +72,17 @@ describe "HipChat::API" do
     rooms_history_response.should_not be nil
     rooms_history_response['messages'].size.should be 3
   end
+
+  it "should create a user" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/create|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_create_response.json'), 
+                         :content_type => "application/json")
+  
+    users_create_response = @hipchat_api.users_create('New Guy', 'new@company.com', 'intern')
+    users_create_response.should_not be nil
+    users_create_response['user']['name'].should == 'New Guy'
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

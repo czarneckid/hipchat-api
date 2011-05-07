@@ -58,7 +58,7 @@ module HipChat
     
     def users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
       self.class.post(hipchat_api_url_for('users/create'), :body => {:auth_token => @token, :email => email, :name => name, :title => title, 
-        :is_group_admin => is_group_admin, :password => password, :timezone => timezone})
+        :is_group_admin => is_group_admin, :password => password, :timezone => timezone}.reject!{|key, value| value.nil?})
     end
 
     def users_delete(user_id)
@@ -71,6 +71,11 @@ module HipChat
 
     def users_show(user_id)
       self.class.get(hipchat_api_url_for('users/show'), :query => {:auth_token => @token, :user_id => user_id})
+    end
+
+    def users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
+      self.class.post(hipchat_api_url_for('users/update'), :body => {:auth_token => @token, :user_id => user_id, :email => email, 
+        :name => name, :title => title, :is_group_admin => is_group_admin, :password => password, :timezone => timezone}.reject!{|key, value| value.nil?})
     end
     
     private

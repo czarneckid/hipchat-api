@@ -79,7 +79,7 @@ describe "HipChat::API" do
                          :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_create_response.json'), 
                          :content_type => "application/json")
   
-    users_create_response = @hipchat_api.users_create('New Guy', 'new@company.com', 'intern')
+    users_create_response = @hipchat_api.users_create('new@company.com', 'New Guy', 'intern')
     users_create_response.should_not be nil
     users_create_response['user']['name'].should == 'New Guy'
   end
@@ -115,6 +115,17 @@ describe "HipChat::API" do
     users_show_response = @hipchat_api.users_show(5)
     users_show_response.should_not be nil
     users_show_response['user']['name'].should == 'Garret Heaton'
+  end
+  
+  it "should update a user" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/update|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_update_response.json'), 
+                         :content_type => "application/json")
+  
+    users_update_response = @hipchat_api.users_update(5, 'new-email-address@hipchat.com')
+    users_update_response.should_not be nil
+    users_update_response['user']['email'].should == 'new-email-address@hipchat.com'
   end
   
   after(:each) do

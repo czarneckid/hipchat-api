@@ -1,0 +1,13 @@
+{ "rooms" : [ { "last_active" : 1269020400,
+        "name" : "Development",
+        "owner_user_id" : 1,
+        "room_id" : 7,
+        "topic" : "Make sure to document your API functions well!"
+      },
+      { "last_active" : 1269010500,
+        "name" : "Ops",
+        "owner_user_id" : 5,
+        "room_id" : 10,
+        "topic" : "Chef is so awesome."
+      }
+    ] }

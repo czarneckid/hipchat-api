@@ -11,3 +11,10 @@ group :development do
   gem "jeweler", "~> 1.6.0"
   gem "rcov", ">= 0"
 end
+
+group :test do
+	gem 'mocha'
+	gem 'fakeweb'
+end
+
+gem 'httparty'

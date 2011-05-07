@@ -61,6 +61,17 @@ describe "HipChat::API" do
     rooms_message_response.should_not be nil
     rooms_message_response['status'].should == 'sent'
   end
+
+  it "should return a history of messages" do
+    FakeWeb.register_uri(:get, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/history|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'rooms_history_response.json'), 
+                         :content_type => "application/json")
+  
+    rooms_history_response = @hipchat_api.rooms_history(10, '2010-11-19', 'PST')
+    rooms_history_response.should_not be nil
+    rooms_history_response['messages'].size.should be 3
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

@@ -50,6 +50,10 @@ module HipChat
       self.class.post(hipchat_api_url_for('rooms/message'), :body => {:auth_token => @token, :room_id => room_id, :from => from, :message => message, :notify => notify, :color => color})
     end
     
+    def rooms_history(room_id, date, timezone)
+      self.class.get(hipchat_api_url_for('rooms/history'), :query => {:auth_token => @token, :room_id => room_id, :date => date, :timezone => timezone})
+    end
+    
     private
     
     def hipchat_api_url_for(method)

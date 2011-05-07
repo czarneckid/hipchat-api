@@ -68,6 +68,10 @@ module HipChat
     def users_list
       self.class.get(hipchat_api_url_for('users/list'), :query => {:auth_token => @token})
     end
+
+    def users_show(user_id)
+      self.class.get(hipchat_api_url_for('users/show'), :query => {:auth_token => @token, :user_id => user_id})
+    end
     
     private
     

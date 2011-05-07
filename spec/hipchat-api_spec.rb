@@ -105,6 +105,17 @@ describe "HipChat::API" do
     users_list_response.should_not be nil
     users_list_response['users'].size.should be 3
   end
+
+  it "should show the details for a user" do
+    FakeWeb.register_uri(:get, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/show|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_show_response.json'), 
+                         :content_type => "application/json")
+  
+    users_show_response = @hipchat_api.users_show(5)
+    users_show_response.should_not be nil
+    users_show_response['user']['name'].should == 'Garret Heaton'
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

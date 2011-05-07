@@ -1,0 +1,9 @@
+{ "user" : { "email" : "garret@hipchat.com",
+      "is_group_admin" : 1,
+      "name" : "Garret Heaton",
+      "photo_url" : "https://www.hipchat.com/img/silhouette_125.png",
+      "status" : "available",
+      "status_message" : "Come see what I'm working on!",
+      "title" : "Co-founder",
+      "user_id" : 5
+    } }

@@ -60,6 +60,10 @@ module HipChat
       self.class.post(hipchat_api_url_for('users/create'), :body => {:auth_token => @token, :email => email, :name => name, :title => title, 
         :is_group_admin => is_group_admin, :password => password, :timezone => timezone})
     end
+
+    def users_delete(user_id)
+      self.class.post(hipchat_api_url_for('users/delete'), :body => {:auth_token => @token, :user_id => user_id})
+    end
     
     private
     

@@ -83,6 +83,17 @@ describe "HipChat::API" do
     users_create_response.should_not be nil
     users_create_response['user']['name'].should == 'New Guy'
   end
+
+  it "should delete a user" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/delete|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_delete_response.json'), 
+                         :content_type => "application/json")
+  
+    users_delete_response = @hipchat_api.users_delete(5)
+    users_delete_response.should_not be nil
+    users_delete_response['deleted'].should be true
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

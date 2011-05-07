@@ -27,6 +27,7 @@ Gem::Specification.new do |s|
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "hipchat-api.gemspec",
     "lib/hipchat-api.rb",
     "spec/fakeweb/rooms_history_response.json",
     "spec/fakeweb/rooms_list_response.json",

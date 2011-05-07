@@ -1,0 +1,14 @@
+{ "room" : { "created" : 1269010311,
+      "last_active" : 1269020400,
+      "name" : "Ops",
+      "owner_user_id" : 5,
+      "participants" : [ { "name" : "Garret Heaton",
+            "user_id" : 5
+          },
+          { "name" : "Chris Rivers",
+            "user_id" : 1
+          }
+        ],
+      "room_id" : 5,
+      "topic" : "Chef is so awesome."
+    } }

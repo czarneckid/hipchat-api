@@ -50,6 +50,17 @@ describe "HipChat::API" do
     rooms_show_response.should_not be nil
     rooms_show_response['room']['topic'].should == 'Chef is so awesome.'
   end
+
+  it "should send a message" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/message|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'rooms_message_response.json'), 
+                         :content_type => "application/json")
+  
+    rooms_message_response = @hipchat_api.rooms_message(10, 'Alerts', 'A new user signed up')
+    rooms_message_response.should_not be nil
+    rooms_message_response['status'].should == 'sent'
+  end
   
   after(:each) do
     FakeWeb.allow_net_connect = true

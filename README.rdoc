@@ -25,9 +25,9 @@ hipchat-API has been tested under Ruby 1.8.7 and Ruby 1.9.2
 	 
 == API methods
 
-	# Room-related methods
-	rooms_list	
-	rooms_history(room_id, date, timezone)	
+# Room-related methods
+rooms_list	
+rooms_history(room_id, date, timezone)	
   rooms_message(room_id, from, message, notify = 0, color = 'yellow')  
   rooms_show(room_id)  
   

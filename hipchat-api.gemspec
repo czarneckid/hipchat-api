@@ -5,11 +5,11 @@
 
 Gem::Specification.new do |s|
   s.name = %q{hipchat-api}
-  s.version = "1.0.0"
+  s.version = "1.0.1"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["David Czarnecki"]
-  s.date = %q{2011-05-07}
+  s.date = %q{2011-05-09}
   s.description = %q{Ruby API for interacting with HipChat}
   s.email = %q{czarneckid@acm.org}
   s.extra_rdoc_files = [
@@ -44,7 +44,7 @@ Gem::Specification.new do |s|
   s.homepage = %q{http://github.com/czarneckid/hipchat-api}
   s.licenses = ["MIT"]
   s.require_paths = ["lib"]
-  s.rubygems_version = %q{1.6.2}
+  s.rubygems_version = %q{1.7.2}
   s.summary = %q{Ruby API for interacting with HipChat}
 
   if s.respond_to? :specification_version then

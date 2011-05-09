@@ -4,7 +4,7 @@ module HipChat
   class API
     include HTTParty
     
-    VERSION = '1.0.0'.freeze
+    VERSION = '1.0.1'.freeze
     DEFAULT_TIMEOUT = 3
     
     DEFAULT_HEADERS = {
@@ -15,7 +15,7 @@ module HipChat
     default_timeout(DEFAULT_TIMEOUT)
     format(:json)
 
-    HIPCHAT_API_URL = 'http://api.hipchat.com/v1'
+    HIPCHAT_API_URL = 'https://api.hipchat.com/v1'
 
     attr_accessor :hipchat_api_url
     attr_accessor :token

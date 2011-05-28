@@ -51,6 +51,6 @@ end
 namespace :spec do
   desc "Runs specs on Ruby 1.8.7 and 1.9.2"
   task :rubies do
-    system "rvm 1.8.7,1.9.2 rake"
+    system "rvm 1.8.7@hipchat-api_gem,1.9.2@hipchat-api_gem rake"
   end
 end

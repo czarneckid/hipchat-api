@@ -13,7 +13,7 @@ describe "HipChat::API" do
   end
   
   it "should create a new instance with the correct parameters" do  
-    @hipchat_api.token.should == 'token'
+    @hipchat_api.token.should be == 'token'
     @hipchat_api.hipchat_api_url.should == HipChat::API::HIPCHAT_API_URL
   end
   

@@ -17,8 +17,8 @@ Jeweler::Tasks.new do |gem|
   gem.name = "hipchat-api"
   gem.homepage = "http://github.com/czarneckid/hipchat-api"
   gem.license = "MIT"
-  gem.summary = %Q{Ruby API for interacting with HipChat}
-  gem.description = %Q{Ruby API for interacting with HipChat}
+  gem.summary = %Q{Ruby gem for interacting with HipChat}
+  gem.description = %Q{Ruby gem for interacting with HipChat}
   gem.email = "czarneckid@acm.org"
   gem.authors = ["David Czarnecki"]
   # dependencies defined in Gemfile

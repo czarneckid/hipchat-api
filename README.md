@@ -3,7 +3,7 @@ hipchat-api
 
 [![Project Status](http://stillmaintained.com/czarneckid/hipchat-api.png)](http://stillmaintained.com/czarneckid/hipchat-api) [![Build Status](http://travis-ci.org/czarneckid/hipchat-api.png)](http://travis-ci.org/czarneckid/hipchat-api)
 
-Ruby API for interacting with HipChat API
+Ruby gem for interacting with HipChat API
 
 * https://www.hipchat.com/docs/api
 

@@ -9,7 +9,7 @@ describe "HipChat::API" do
   end
     
   it "should be the correct version" do
-    HipChat::API::VERSION.should == '1.0.1'
+    HipChat::API::VERSION.should == '1.0.2'
   end
   
   it "should create a new instance with the correct parameters" do  
@@ -27,6 +27,29 @@ describe "HipChat::API" do
     @hipchat_api.expects(:default_timeout).at_least_once
     
     @hipchat_api.set_timeout(10)
+  end
+  
+  it "should allow you to create a room" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/create|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'rooms_create_response.json'), 
+                         :content_type => "application/json")
+  
+    rooms_create_response = @hipchat_api.rooms_create('Development', 5)
+    rooms_create_response.should_not be nil
+    rooms_create_response['room']['name'].should == 'Development'
+    rooms_create_response['room']['owner_user_id'].should == 5
+  end
+
+  it "should allow you to delete a room" do
+    FakeWeb.register_uri(:post, 
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/delete|, 
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'rooms_delete_response.json'), 
+                         :content_type => "application/json")
+  
+    rooms_delete_response = @hipchat_api.rooms_delete(5)
+    rooms_delete_response.should_not be nil
+    rooms_delete_response['deleted'].should be true
   end
   
   it "should return a list of rooms" do

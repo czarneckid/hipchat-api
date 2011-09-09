@@ -4,7 +4,7 @@ module HipChat
   class API
     include HTTParty
     
-    VERSION = '1.0.1'.freeze
+    VERSION = '1.0.2'.freeze
     DEFAULT_TIMEOUT = 3
     
     DEFAULT_HEADERS = {
@@ -36,6 +36,17 @@ module HipChat
 
     def set_timeout(timeout)
       self.class.default_timeout(timeout)
+    end
+    
+    # https://www.hipchat.com/docs/api/method/rooms/create
+    def rooms_create(name, owner_user_id, privacy = 'public', topic = '', guest_access = 0)
+      self.class.post(hipchat_api_url_for('rooms/create'), :body => {:auth_token => @token, :name => name, :owner_user_id => owner_user_id, 
+        :topic => topic, :privacy => privacy, :guest_access => guest_access})
+    end
+    
+    # https://www.hipchat.com/docs/api/method/rooms/delete
+    def rooms_delete(room_id)
+      self.class.post(hipchat_api_url_for('rooms/delete'), :body => {:auth_token => @token, :room_id => room_id})      
     end
 
     # https://www.hipchat.com/docs/api/method/rooms/history

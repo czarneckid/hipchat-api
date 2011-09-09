@@ -25,10 +25,12 @@ Install
 Example
 -------
 
-		ruby-1.9.2-p180 :001 > require 'hipchat-api'
-		=> true 
-		ruby-1.9.2-p180 :002 > hipchat_api = HipChat::API.new('api_token')
-		=> #<HipChat::API:0x000001013d7280 @token="api_token", @hipchat_api_url="https://api.hipchat.com/v1"> 		
+```ruby
+ruby-1.9.2-p180 :001 > require 'hipchat-api'
+=> true 
+ruby-1.9.2-p180 :002 > hipchat_api = HipChat::API.new('api_token')
+=> #<HipChat::API:0x000001013d7280 @token="api_token", @hipchat_api_url="https://api.hipchat.com/v1"> 		
+```
 	 
 API methods
 -----------

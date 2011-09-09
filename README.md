@@ -35,18 +35,24 @@ API methods
 
 * Room-related methods
 
-	    rooms_list	
-	    rooms_history(room_id, date, timezone)	
-	    rooms_message(room_id, from, message, notify = 0, color = 'yellow')  
-	    rooms_show(room_id)  
+```ruby
+rooms_create(name, owner_user_id, privacy = 'public', topic = '', guest_access = 0)
+rooms_delete(room_id)
+rooms_list	
+rooms_history(room_id, date, timezone)	
+rooms_message(room_id, from, message, notify = 0, color = 'yellow')  
+rooms_show(room_id)  
+```
   
 * User-related methods
 
-	    users_list  
-	    users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
-	    users_delete(user_id)  
-	    users_show(user_id)  
-	    users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
+```ruby
+users_list  
+users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
+users_delete(user_id)  
+users_show(user_id)  
+users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
+```
   
 Contributing to hipchat-api
 ---------------------------

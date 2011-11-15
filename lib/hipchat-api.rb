@@ -1,10 +1,10 @@
 require 'httparty'
+require 'hipchat-api-version'
 
 module HipChat
   class API
     include HTTParty
     
-    VERSION = '1.0.2'
     DEFAULT_TIMEOUT = 3
     
     DEFAULT_HEADERS = {

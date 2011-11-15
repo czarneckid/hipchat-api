@@ -1,4 +1,4 @@
-require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
+require 'spec_helper'
 require 'fakeweb'
 
 describe "HipChat::API" do
@@ -6,6 +6,10 @@ describe "HipChat::API" do
     FakeWeb.allow_net_connect = false
     FakeWeb.clean_registry
     @hipchat_api = HipChat::API.new('token')
+  end
+
+  after(:each) do
+    FakeWeb.allow_net_connect = true
   end
     
   it "should be the correct version" do
@@ -149,9 +153,5 @@ describe "HipChat::API" do
     users_update_response = @hipchat_api.users_update(5, 'new-email-address@hipchat.com')
     users_update_response.should_not be nil
     users_update_response['user']['email'].should == 'new-email-address@hipchat.com'
-  end
-  
-  after(:each) do
-    FakeWeb.allow_net_connect = true
   end
 end

@@ -5,7 +5,7 @@ require 'hipchat-api-version'
 
 Gem::Specification.new do |s|
   s.name        = "hipchat-api"
-  s.version     = HipChat::API::VERSION
+  s.version     = HipChat::API::VERSION.dup
   s.authors     = ["David Czarnecki"]
   s.email       = ["czarneckid@acm.org"]
   s.homepage    = "http://github.com/czarneckid/hipchat-api"

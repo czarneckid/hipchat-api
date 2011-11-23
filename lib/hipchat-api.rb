@@ -1,5 +1,5 @@
 require 'httparty'
-require 'hipchat-api-version'
+require 'version'
 
 module HipChat
   class API

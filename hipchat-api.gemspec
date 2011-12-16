@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
 
-require 'version'
+require 'hipchat-api/version'
 
 Gem::Specification.new do |s|
   s.name        = "hipchat-api"
@@ -23,7 +23,7 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency('fakeweb')
   s.add_development_dependency('mocha')
-  s.add_development_dependency('rspec')
+  s.add_development_dependency('rspec', '~> 2.7.0')
   s.add_development_dependency('rake')
 end
 

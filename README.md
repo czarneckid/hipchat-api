@@ -70,4 +70,4 @@ Contributing to hipchat-api
 Copyright
 ---------
 
-Copyright (c) 2011 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2011-2012 David Czarnecki. See LICENSE.txt for further details.

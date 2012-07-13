@@ -106,10 +106,11 @@ module HipChat
     # @param message [String] The message body. Must be valid XHTML. HTML entities must be escaped (e.g.: &amp; instead of &). May contain basic tags: a, b, i, strong, em, br, img, pre, code. 5000 characters max. 
     # @param notify [int] Boolean flag of whether or not this message should trigger a notification for people in the room (based on their individual notification preferences). 0 = false, 1 = true. (default: 0)
     # @param color [String] Background color for message. One of "yellow", "red", "green", "purple", or "random". (default: yellow) 
+    # @param message_format [String] Determines how the message is treated by HipChat's server and rendered inside HipChat applications. One of "html" or "text". (default: html)
     # @see https://www.hipchat.com/docs/api/method/rooms/message
-    def rooms_message(room_id, from, message, notify = 0, color = 'yellow')
+    def rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')
       self.class.post(hipchat_api_url_for('rooms/message'), :body => {:auth_token => @token, :room_id => room_id, :from => from, 
-        :message => message, :notify => notify, :color => color})
+        :message => message, :notify => notify, :color => color, :message_format => message_format})
     end
 
     # Get room details.

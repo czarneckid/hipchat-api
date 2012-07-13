@@ -1,5 +1,6 @@
 require 'spec_helper'
 require 'fakeweb'
+require 'mocha'
 
 describe "HipChat::API" do
   before(:each) do

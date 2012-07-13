@@ -13,7 +13,7 @@ describe "HipChat::API" do
   end
     
   it "should be the correct version" do
-    HipChat::API::VERSION.should == '1.0.2'
+    HipChat::API::VERSION.should == '1.0.3'
   end
   
   it "should create a new instance with the correct parameters" do  

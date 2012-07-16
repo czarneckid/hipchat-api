@@ -107,9 +107,13 @@ describe "HipChat::API" do
                          :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_create_response.json'),
                          :content_type => "application/json")
 
-    users_create_response = @hipchat_api.users_create('new@company.com', 'New Guy', 'intern')
+    users_create_response = @hipchat_api.users_create('new@company.com', 'New Guy', 'intern', is_group_admin = 0, 'changeme')
     users_create_response.should_not be nil
     users_create_response['user']['name'].should == 'New Guy'
+
+    # Make sure the new user's password was sent
+    FakeWeb.last_request.body.should_not be_nil
+    FakeWeb.last_request.body.should match 'changeme'
   end
 
   it "should delete a user" do

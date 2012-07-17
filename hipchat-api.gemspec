@@ -20,11 +20,9 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency('httparty')
-  
+
   s.add_development_dependency('fakeweb')
-  s.add_development_dependency('mocha')
+  s.add_development_dependency('mocha', '~> 0.11.4')
   s.add_development_dependency('rspec', '~> 2.7.0')
   s.add_development_dependency('rake')
 end
-
-

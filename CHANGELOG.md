@@ -1,3 +1,7 @@
+# 1.0.4 (2012-07-16)
+
+* Change reject! to reject to fix create user issue. Fixes #2. Thanks @bradleybuda.
+
 # 1.0.3 (2012-07-13)
 
 * Add support to the new message_format param when publishing messages to a room. Thanks @rtopitt.

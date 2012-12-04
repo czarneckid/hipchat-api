@@ -14,7 +14,7 @@ describe "HipChat::API" do
   end
 
   it "should be the correct version" do
-    HipChat::API::VERSION.should == '1.0.4'
+    HipChat::API::VERSION.should == '1.0.5'
   end
 
   it "should create a new instance with the correct parameters" do
@@ -90,6 +90,17 @@ describe "HipChat::API" do
     rooms_message_response['status'].should == 'sent'
   end
 
+  it "should update a room's topic" do
+    FakeWeb.register_uri(:post,
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/topic|,
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'rooms_topic_response.json'),
+                         :content_type => "application/json")
+
+    rooms_message_response = @hipchat_api.rooms_topic(10, 'This is a new topic')
+    rooms_message_response.should_not be nil
+    rooms_message_response['status'].should == 'ok'    
+  end
+
   it "should return a history of messages" do
     FakeWeb.register_uri(:get,
                          %r|#{HipChat::API::HIPCHAT_API_URL}/rooms/history|,
@@ -147,6 +158,17 @@ describe "HipChat::API" do
     users_show_response = @hipchat_api.users_show(5)
     users_show_response.should_not be nil
     users_show_response['user']['name'].should == 'Garret Heaton'
+  end
+
+  it "should undelete a user" do
+    FakeWeb.register_uri(:post,
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/undelete|,
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_undelete_response.json'),
+                         :content_type => "application/json")
+
+    users_update_response = @hipchat_api.users_undelete('new-email-address@hipchat.com')
+    users_update_response.should_not be nil
+    users_update_response['undeleted'].should be true
   end
 
   it "should update a user" do

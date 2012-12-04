@@ -39,6 +39,7 @@ rooms_delete(room_id)
 rooms_list	
 rooms_history(room_id, date, timezone)	
 rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')  
+rooms_topic(toom_id, topic, from = 'API')
 rooms_show(room_id)  
 ```
   
@@ -48,7 +49,8 @@ rooms_show(room_id)
 users_list  
 users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
 users_delete(user_id)  
-users_show(user_id)  
+users_show(user_id)
+users_undelete(user_id)
 users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
 ```
   

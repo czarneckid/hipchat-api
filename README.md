@@ -66,4 +66,4 @@ users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil
 
 ## Copyright
 
-Copyright (c) 2011-2012 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2011-2013 David Czarnecki. See LICENSE.txt for further details.

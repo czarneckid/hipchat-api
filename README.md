@@ -1,6 +1,6 @@
 # hipchat-api
 
-[![Project Status](http://stillmaintained.com/czarneckid/hipchat-api.png)](http://stillmaintained.com/czarneckid/hipchat-api) [![Build Status](http://travis-ci.org/czarneckid/hipchat-api.png)](http://travis-ci.org/czarneckid/hipchat-api)
+[![Project Status](http://stillmaintained.com/czarneckid/hipchat-api.png)](http://stillmaintained.com/czarneckid/hipchat-api) [![Build Status](https://travis-ci.org/czarneckid/hipchat-api.png)](https://travis-ci.org/czarneckid/hipchat-api)
 
 Ruby gem for interacting with HipChat API
 

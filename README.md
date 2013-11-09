@@ -39,7 +39,7 @@ rooms_delete(room_id)
 rooms_list	
 rooms_history(room_id, date, timezone)	
 rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')  
-rooms_topic(toom_id, topic, from = 'API')
+rooms_topic(room_id, topic, from = 'API')
 rooms_show(room_id)  
 ```
   

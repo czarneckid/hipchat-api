@@ -24,11 +24,11 @@ gem install hipchat-api
 
 ```ruby
 require 'hipchat-api'
-=> true 
+=> true
 hipchat_api = HipChat::API.new('api_token')
-=> #<HipChat::API:0x000001013d7280 @token="api_token", @hipchat_api_url="https://api.hipchat.com/v1"> 		
+=> #<HipChat::API:0x000001013d7280 @token="api_token", @hipchat_api_url="https://api.hipchat.com/v1">
 ```
-	 
+
 ## API methods
 
 * Room-related methods
@@ -36,26 +36,26 @@ hipchat_api = HipChat::API.new('api_token')
 ```ruby
 rooms_create(name, owner_user_id, privacy = 'public', topic = '', guest_access = 0)
 rooms_delete(room_id)
-rooms_list	
-rooms_history(room_id, date, timezone)	
-rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')  
+rooms_list
+rooms_history(room_id, date, timezone)
+rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')
 rooms_topic(room_id, topic, from = 'API')
-rooms_show(room_id)  
+rooms_show(room_id)
 ```
-  
+
 * User-related methods
 
 ```ruby
-users_list  
+users_list
 users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
-users_delete(user_id)  
+users_delete(user_id)
 users_show(user_id)
 users_undelete(user_id)
 users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil, password = nil, timezone = nil)
 ```
-  
+
 ## Contributing to hipchat-api
- 
+
 * Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
 * Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
 * Fork the project
@@ -66,4 +66,4 @@ users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil
 
 ## Copyright
 
-Copyright (c) 2011-2013 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2011-2014 David Czarnecki. See LICENSE.txt for further details.

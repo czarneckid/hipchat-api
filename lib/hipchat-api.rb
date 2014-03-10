@@ -113,10 +113,10 @@ module HipChat
         :message => message, :notify => notify, :color => color, :message_format => message_format})
     end
 
-    # Set a room's topic. Useful for displaying statistics, important links, server status, you name it! 
+    # Set a room's topic. Useful for displaying statistics, important links, server status, you name it!
     #
     # @param room_id [int] ID of the room.
-    # @param topic [String] The topic body. 250 characters max. 
+    # @param topic [String] The topic body. 250 characters max.
     # @param from [String, 'API'] Name of the service changing the topic. (default: API).
     #
     # @see https://www.hipchat.com/docs/api/method/rooms/topic
@@ -177,7 +177,7 @@ module HipChat
       self.class.get(hipchat_api_url_for('users/show'), :query => {:auth_token => @token, :user_id => user_id})
     end
 
-    # Undelete a user. They will be sent an email requiring them to click a link to reactivate the account. 
+    # Undelete a user. They will be sent an email requiring them to click a link to reactivate the account.
     #
     # @param user_id [String] ID or email address of the user.
     #

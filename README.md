@@ -46,7 +46,7 @@ rooms_show(room_id)
 * User-related methods
 
 ```ruby
-users_list
+users_list(include_deleted = 0)
 users_create(email, name, title, is_group_admin = 0, password = nil, timezone = 'UTC')
 users_delete(user_id)
 users_show(user_id)

@@ -159,9 +159,13 @@ module HipChat
 
     # List all users in the group.
     #
+    # @param notify [bool] Boolean flag of whether or not include deleted users 0 = false, 1 = true. (default: 0)
+    #
     # @see https://www.hipchat.com/docs/api/method/users/list
-    def users_list
-      self.class.get(hipchat_api_url_for('users/list'), :query => {:auth_token => @token})
+    def users_list(include_deleted = 0)
+      query = {:auth_token => @token}
+      query[:include_deleted] = 1 if include_deleted == 1
+      self.class.get(hipchat_api_url_for('users/list'), :query => query)
     end
 
     # Get a user's details.

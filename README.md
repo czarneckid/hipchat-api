@@ -1,6 +1,6 @@
 # hipchat-api
 
-[![Project Status](http://stillmaintained.com/czarneckid/hipchat-api.png)](http://stillmaintained.com/czarneckid/hipchat-api) [![Build Status](http://travis-ci.org/czarneckid/hipchat-api.png)](http://travis-ci.org/czarneckid/hipchat-api)
+[![Project Status](http://stillmaintained.com/czarneckid/hipchat-api.png)](http://stillmaintained.com/czarneckid/hipchat-api) [![Build Status](https://travis-ci.org/czarneckid/hipchat-api.png)](https://travis-ci.org/czarneckid/hipchat-api)
 
 Ruby gem for interacting with HipChat API
 
@@ -66,4 +66,4 @@ users_update(user_id, email = nil, name = nil, title = nil, is_group_admin = nil
 
 ## Copyright
 
-Copyright (c) 2011-2013 David Czarnecki. See LICENSE.txt for further details.
+Copyright (c) 2011-2014 David Czarnecki. See LICENSE.txt for further details.

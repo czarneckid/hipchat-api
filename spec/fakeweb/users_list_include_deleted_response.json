@@ -1,0 +1,29 @@
+{ "users" : [ { "email" : "chris@hipchat.com",
+        "is_group_admin" : 1,
+        "name" : "Chris Rivers",
+        "photo_url" : "https://www.hipchat.com/chris.png",
+        "status" : "away",
+        "status_message" : "gym, bbl",
+        "title" : "Developer",
+        "user_id" : 1
+      },
+      { "email" : "pete@hipchat.com",
+        "is_group_admin" : 1,
+        "name" : "Peter Curley",
+        "photo_url" : "https://www.hipchat.com/pete.png",
+        "status" : "offline",
+        "status_message" : "",
+        "title" : "Designer",
+        "user_id" : 3
+      },
+      { "email" : "garret@hipchat.com",
+        "is_group_admin" : 1,
+        "name" : "Garret Heaton",
+        "photo_url" : "https://www.hipchat.com/garret.png",
+        "status" : "available",
+        "status_message" : "Come see what I'm working on!",
+        "title" : "Co-founder",
+        "user_id" : 5,
+	"is_deleted" : 1
+      }
+    ] }

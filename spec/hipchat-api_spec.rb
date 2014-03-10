@@ -149,6 +149,19 @@ describe "HipChat::API" do
     users_list_response['users'].size.should be 3
   end
 
+  it "should return a list of users including deleted" do
+    FakeWeb.register_uri(:get,
+                         %r|#{HipChat::API::HIPCHAT_API_URL}/users/list.*include_deleted=1|,
+                         :body => File.join(File.dirname(__FILE__), 'fakeweb', 'users_list_include_deleted_response.json'),
+                         :content_type => "application/json")
+
+    users_list_response = @hipchat_api.users_list(include_deleted = 1)
+    users_list_response.should_not be nil
+    users_list_response['users'].size.should be 3
+    users_list_response['users'].select { |u| u['is_deleted'] == 1 }.size.should be 1
+    users_list_response['users'].select { |u| u['is_deleted'] != 1 }.size.should be 2
+  end
+
   it "should show the details for a user" do
     FakeWeb.register_uri(:get,
                          %r|#{HipChat::API::HIPCHAT_API_URL}/users/show|,

@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## 1.0.6 (2014-03-09)
+
+* Added `include_deleted` parameter to `users_list` method [#7](https://github.com/czarneckid/hipchat-api/pull/7)
+
 ## 1.0.5 (2012-12-04)
 
 * Added `rooms_topic` method to set a room's topic.
@@ -16,7 +20,7 @@
 ## 1.0.2 (2011-09-09)
 
  * Added missing HipChat API methods: `rooms_create`, `rooms_delete`
- 
+
 ## 1.0.1 (2011-05-09)
 
  * Set the default HIPCHAT_API_URL to use https

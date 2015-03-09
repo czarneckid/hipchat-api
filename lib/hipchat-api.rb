@@ -110,7 +110,7 @@ module HipChat
     # @see https://www.hipchat.com/docs/api/method/rooms/message
     def rooms_message(room_id, from, message, notify = 0, color = 'yellow', message_format = 'html')
       self.class.post(hipchat_api_url_for('rooms/message'), :body => {:auth_token => @token, :room_id => room_id, :from => from,
-        :message => message, :notify => notify, :color => color, :message_format => message_format})
+        :message => message[0, 10000], :notify => notify, :color => color, :message_format => message_format})
     end
 
     # Set a room's topic. Useful for displaying statistics, important links, server status, you name it!
